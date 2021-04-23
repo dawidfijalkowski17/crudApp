@@ -1,0 +1,7 @@
+<ul *ngIf="campaigns">
+    <li *ngFor="let campaign of campaigns">
+       {{ campaign.name }} {{campaign.town}}
+       <button type="button" class="btn btn-primary" (click)="updateCampaign(campaign._id, campaign)">Edit</button>
+       <button type="button" class="btn btn-primary" (click)="deleteCampaign(campaign._id)">Delete</button>
+    </li>
+</ul>

@@ -1,0 +1,15 @@
+<div class="container-content">
+    <div class="row">
+      <div class="col content">
+        <div class="headline">
+            <button type="button" class="btn btn-primary" [routerLink]="['addItem']">Add</button>
+            <button type="button" class="btn btn-primary" [routerLink]="['list']">Show All</button>
+            <button type="button" class="btn btn-primary" (click)='backToLastPage()'>Back</button>
+        </div>
+        <div class="action-content">
+            <router-outlet></router-outlet>
+        </div>
+        
+      </div>
+    </div>
+  </div>
