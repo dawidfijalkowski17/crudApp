@@ -39,7 +39,7 @@ export class ListComponent implements OnInit {
 
   updateCampaign(id: string, cmp: Campaign){
     this.campaignService.editCampaign(cmp, id).subscribe((res)=>{
-      this.router.navigate(['mainPage/addItem', id])
+      this.router.navigate(['mainPage/addItem'])
     })
   }
 }

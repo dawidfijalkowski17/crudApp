@@ -28,7 +28,7 @@
                 
         </div>
         <div class="col">
-            <button type="button" class="btn btn-primary mt-4 ml-4" (click)="createNewCampaign()">Add campaign</button>
+            <button type="button" class="btn btn-primary mt-4 ml-4" [disabled]="!campaignForm.valid" (click)="createNewCampaign()">Add campaign</button>
         </div>
     </form>
 </div>
