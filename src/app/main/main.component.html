@@ -5,6 +5,7 @@
             <button type="button" class="btn btn-primary" [routerLink]="['addItem']">Add</button>
             <button type="button" class="btn btn-primary" [routerLink]="['list']">Show All</button>
             <button type="button" class="btn btn-primary" (click)='backToLastPage()'>Back</button>
+            <h5 class="text-uppercase campaign-found ml-1 mt-2">campaign found: {{amount}}</h5>
         </div>
         <div class="action-content">
             <router-outlet></router-outlet>

@@ -1,0 +1,41 @@
+<form [formGroup]="campaignForm">
+    <div class="row">  
+          <div class="col">
+                  <label>
+                      Name:
+                      <input type="text" formControlName="name">
+                  </label>
+                  <label>
+                      Keywords:
+                      <input type="text" formControlName="keywords" placeholder="summer, music ...">
+                  </label>
+                  <label>
+                      Bid Amount:
+                      <input (keypress)="numberOnly($event)" type="text" maxlength="4" formControlName="bidAmount">
+                  </label>
+          </div>
+  
+          <div class="col">
+                  <label>
+                      Active: 
+                      <input type="checkbox" formControlName="status" class="active-inp-status">
+                  </label>
+                  <label>
+                      Town:
+                      <input type="text" formControlName="town">
+                  </label>
+                  <label>
+                      Radius:
+                      <input (keypress)="numberOnly($event)" type="text" maxlength="5" formControlName="radius">
+                  </label>
+                  <button type="button" class="btn btn-primary mt-4 mr-2" [disabled]="!campaignForm.valid" (click)="updateCampaign()">Save</button>
+                  <button type="button" class="btn btn-primary mt-4" [routerLink]="['/list']">Back</button>
+              
+          </div>
+  
+          <div class="col">
+              
+          </div>
+  </div>
+  </form>
+  

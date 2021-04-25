@@ -1,11 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const cors = require("cors");
 
 const { mongoose } = require('./mongoose');
 const CampaignSchema = require('./models/campaign_mode');
 
 app.use(bodyParser.json());
+app.use(cors());
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
@@ -62,4 +64,11 @@ app.get('/list', (req, res) =>{
         console.log(err);
     }
     )
+});
+
+app.patch('/mainPage/list/edit-campaign/:id', (req, res) =>{
+    
+    CampaignSchema.findOneAndUpdate({ _id: req.params.id}, {$set: req.body }).then(()=>{
+        res.sendStatus(200)
+    })
 });

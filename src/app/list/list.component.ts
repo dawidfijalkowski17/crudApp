@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AddEditService } from '../AddEditService/add-edit.service';
 import { Campaign } from '../campaign';
 import { CampaignService } from '../CampaignService/campaign.service';
 
@@ -11,8 +13,20 @@ import { CampaignService } from '../CampaignService/campaign.service';
 export class ListComponent implements OnInit {
 
   campaigns: any;
-  idCampaign: any;
-  constructor(private campaignService: CampaignService, private router: Router) { }
+  isEdit = false;
+  campaignId!: string;
+  selectedCampaign: any;
+
+  campaignForm = this.formBuilder.group({
+    name: ['', [Validators.required, Validators.minLength(6)]],
+    keywords: ['', [Validators.required ]],
+    bidAmount: ['', [Validators.required]],
+    status: ['', Validators.required],
+    town: ['', Validators.required],
+    radius: ['', Validators.required]
+  })
+
+  constructor(private campaignService: CampaignService, private router: Router, private addEditService: AddEditService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.getAllCampaigns()
@@ -22,7 +36,6 @@ export class ListComponent implements OnInit {
     this.campaignService.getAllCmapaign().subscribe(
       (res) =>{
         this.campaigns = res;
-        this.idCampaign = this.campaigns._id;
       }, (err) =>{
         console.log(err)
       }
@@ -37,9 +50,21 @@ export class ListComponent implements OnInit {
     })
   }
 
-  updateCampaign(id: string, cmp: Campaign){
-    this.campaignService.editCampaign(cmp, id).subscribe((res)=>{
-      this.router.navigate(['mainPage/addItem'])
-    })
+  setEditContent(){
+    this.isEdit = true;
+  }
+
+  getCampaignId(id: string){
+    this.campaignId = id;
+  }
+
+  setCampaignData(id: string){
+    
+    if(this.campaigns){
+      this.selectedCampaign =  this.campaigns.find((x: { _id: string; }) => x._id === id)
+      this.campaignId = this.selectedCampaign._id;
+    }
+
+    this.addEditService.setCampaignData(this.selectedCampaign)
   }
 }

@@ -1,5 +1,5 @@
-  <div class="row">
-    <form [formGroup]="campaignForm">
+<form [formGroup]="campaignForm">
+  <div class="row">  
         <div class="col">
                 <label>
                     Name:
@@ -13,9 +13,12 @@
                     Bid Amount:
                     <input (keypress)="numberOnly($event)" type="text" maxlength="4" formControlName="bidAmount">
                 </label>
+        </div>
+
+        <div class="col">
                 <label>
                     Active: 
-                     <input type="checkbox" formControlName="status" class="active-inp-status">
+                    <input type="checkbox" formControlName="status" class="active-inp-status">
                 </label>
                 <label>
                     Town:
@@ -25,10 +28,12 @@
                     Radius:
                     <input (keypress)="numberOnly($event)" type="text" maxlength="5" formControlName="radius">
                 </label>
-                
+                <button type="button" class="btn btn-primary mt-4 ml-4" [disabled]="!campaignForm.valid" (click)="createNewCampaign()">Add campaign</button>
+            
         </div>
+
         <div class="col">
-            <button type="button" class="btn btn-primary mt-4 ml-4" [disabled]="!campaignForm.valid" (click)="createNewCampaign()">Add campaign</button>
+            
         </div>
-    </form>
 </div>
+</form>

@@ -12,6 +12,8 @@ li{
     background-color: rgb(255, 255, 255);
     border-bottom: 1px solid black;
     transition: background-color .5s;
+    overflow: hidden;
+    cursor: pointer;
 }
 
 li:hover{
@@ -25,3 +27,10 @@ button{
     position: relative;
     font-size: .8rem;
 }
+
+.city-headline{
+    font-weight: 700;
+    padding-left: 1rem;
+    color: #007bff;
+}
+

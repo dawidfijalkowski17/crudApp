@@ -8,13 +8,16 @@ import { CampaignService } from 'src/app/CampaignService/campaign.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainComponent } from './main.component';
 import { AddItemComponent } from 'src/app/add-item/add-item.component';
+import { EditCampaignComponent } from '../edit-campaign/edit-campaign.component';
+import { AddEditService } from '../AddEditService/add-edit.service';
 
 
 @NgModule({
   declarations: [
     MainComponent,
     ListComponent,
-    AddItemComponent
+    AddItemComponent,
+    EditCampaignComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +27,8 @@ import { AddItemComponent } from 'src/app/add-item/add-item.component';
     HttpClientModule
   ],
   providers: [
-    CampaignService
+    CampaignService,
+    AddEditService
   ]
 })
 export class MainModule { }

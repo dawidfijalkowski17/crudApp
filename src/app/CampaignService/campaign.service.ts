@@ -24,6 +24,7 @@ export class CampaignService {
   }
 
   editCampaign(data: Campaign, id: string){
-    return this.http.patch(`${this.ROOT_URL}/mainPage/list/${id}`, data)
+    console.log(id)
+    return this.http.patch(`${this.ROOT_URL}/mainPage/list/edit-campaign/${id}`, data)
   }
 }

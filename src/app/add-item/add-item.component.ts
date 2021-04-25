@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AddEditService } from '../AddEditService/add-edit.service';
 import { Campaign } from '../campaign';
 import { CampaignService } from '../CampaignService/campaign.service';
 
@@ -23,7 +24,7 @@ export class AddItemComponent implements OnInit {
   })
 
 
-  constructor(private formBuilder: FormBuilder, private campaignService: CampaignService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private campaignService: CampaignService, private router: Router, private addEditService: AddEditService) { }
 
   ngOnInit(): void {
   }
@@ -38,6 +39,7 @@ export class AddItemComponent implements OnInit {
 
   createNewCampaign(){
     this.campaign = this.campaignForm.value
+    this.addEditService.setCampaignFound(this.campaignForm.controls['bidAmount'].value)
     this.campaignService.addCampaign(this.campaign).subscribe((res)=>{
       this.router.navigate(['mainPage/list'])
     }, (err)=>{
