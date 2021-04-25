@@ -1,9 +1,9 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { AddEditService } from '../AddEditService/add-edit.service';
-import { Campaign } from '../campaign';
-import { CampaignService } from '../CampaignService/campaign.service';
+import { AddEditService } from '../../Services/AddEditService/add-edit.service';
+import { Campaign } from '../../DTO/campaign';
+import { CampaignService } from '../../Services/CampaignService/campaign.service';
 
 @Component({
   selector: 'app-edit-campaign',

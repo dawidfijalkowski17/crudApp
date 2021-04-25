@@ -2,12 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Campaign } from '../campaign';
+import { Campaign } from '../../DTO/campaign';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AddEditService {
+
+  campaignFound!: number;
 
   campaignForm = this.formBuilder.group({
     name: ['', [Validators.required, Validators.minLength(6)]],
@@ -17,9 +19,6 @@ export class AddEditService {
     town: ['', Validators.required],
     radius: ['', Validators.required]
   })
-
-  campaignFound: BehaviorSubject<number> = new BehaviorSubject<number>(20000)
-
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient) { }
 
@@ -31,7 +30,4 @@ export class AddEditService {
     this.campaignForm.patchValue(data);
   }
 
-  setCampaignFound(amount: number){
-    return this.campaignFound
-  }
 }

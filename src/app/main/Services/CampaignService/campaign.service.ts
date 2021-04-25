@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Campaign } from '../campaign';
+import { Campaign } from '../../DTO/campaign';
 
 @Injectable({
   providedIn: 'root'
@@ -27,4 +27,5 @@ export class CampaignService {
     console.log(id)
     return this.http.patch(`${this.ROOT_URL}/mainPage/list/edit-campaign/${id}`, data)
   }
+  
 }

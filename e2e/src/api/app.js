@@ -6,6 +6,7 @@ const cors = require("cors");
 const { mongoose } = require('./mongoose');
 const CampaignSchema = require('./models/campaign_mode');
 
+
 app.use(bodyParser.json());
 app.use(cors());
 

@@ -1,8 +1,8 @@
 import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AddItemComponent } from 'src/app/add-item/add-item.component';
-import { ListComponent } from 'src/app/list/list.component';
-import { EditCampaignComponent } from '../edit-campaign/edit-campaign.component';
+import { AddItemComponent } from 'src/app/main/Components/add-item/add-item.component';
+import { ListComponent } from 'src/app/main/Components/list/list.component';
+import { EditCampaignComponent } from './Components/edit-campaign/edit-campaign.component';
 import { MainComponent } from './main.component';
 
 const routes: Routes = [
