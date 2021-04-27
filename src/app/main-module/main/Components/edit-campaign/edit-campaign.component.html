@@ -1,3 +1,4 @@
+<h4 class="text-uppercase mt-4 ml-3">Edit Campaign</h4>
 <form [formGroup]="campaignForm">
     <div class="row">  
           <div class="col">
@@ -29,7 +30,7 @@
                       <input (keypress)="numberOnly($event)" type="text" maxlength="5" formControlName="radius">
                   </label>
                   <button type="button" class="btn btn-primary mt-4 mr-2" [disabled]="!campaignForm.valid" (click)="updateCampaign()">Save</button>
-                  <button type="button" class="btn btn-primary mt-4" [routerLink]="['/list']">Back</button>
+                  <button type="button" class="btn btn-primary mt-4" [routerLink]="['../../list']">Cancel</button>
               
           </div>
   

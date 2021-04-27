@@ -1,0 +1,89 @@
+.content{
+    height: 100%;
+    background: url("../../../assets/img/4360943.jpg") no-repeat fixed;
+    background-size: cover;
+}
+
+.content:before{
+    content: ' ';
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	filter: blur(.6rem);
+    background: url("../../../assets/img/4360943.jpg") no-repeat fixed;
+    background-size: cover;
+}
+
+.content-box{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 80%;
+    width: 80%;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+
+.list-button{
+    width: 100%;
+    padding: .5rem 1rem;
+    text-align: left;
+    border: none;
+    cursor: pointer;
+    background-color: #313030;
+    color: white;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    transition: letter-spacing .5s, color .8s, background-color .8s;
+}
+
+.list-button:hover{
+    letter-spacing: 1px;
+}
+
+.list-button:focus{
+    outline: none;
+    color: black;
+    background-color: #f8f9fa;
+}
+
+.container-fluid{
+    padding: 0;
+    height: 100%;
+}
+
+.row{
+    margin-right: 0;
+    height: 100%;
+}
+
+.menu-list{
+    padding-right: 0;
+    padding-left: 0;
+    background-color: #313030;
+}
+
+p{
+    position: absolute;
+    bottom: 0;
+    color: white;
+    cursor: pointer;
+    right: 0;
+    padding-right: 1rem;
+}
+
+p i{
+    font-size: 1.4rem;
+}
+
+
+
+.col-content{
+    padding: 0;
+}
+
+

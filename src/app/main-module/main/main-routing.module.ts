@@ -1,15 +1,14 @@
 import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AddItemComponent } from 'src/app/main/Components/add-item/add-item.component';
-import { ListComponent } from 'src/app/main/Components/list/list.component';
+import { AddItemComponent } from 'src/app/main-module/main/Components/add-item/add-item.component';
+import { ListComponent } from 'src/app/main-module/main/Components/list/list.component';
 import { EditCampaignComponent } from './Components/edit-campaign/edit-campaign.component';
 import { MainComponent } from './main.component';
 
 const routes: Routes = [
   {path: '', component: MainComponent, children: [ 
-    {path: 'list', component: ListComponent, children: [
-        {path: 'edit-campaign/:idCampaign', component: EditCampaignComponent}
-    ]},
+    {path: 'list', component: ListComponent }, 
+    {path: 'edit-campaign/:idCampaign', component: EditCampaignComponent},
     {path: 'addItem', component: AddItemComponent}
   ]}
 ];

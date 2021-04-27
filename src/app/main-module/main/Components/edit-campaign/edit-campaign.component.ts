@@ -1,18 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AddEditService } from '../../Services/AddEditService/add-edit.service';
 import { Campaign } from '../../DTO/campaign';
 import { CampaignService } from '../../Services/CampaignService/campaign.service';
 
 @Component({
-  selector: 'app-add-item',
-  templateUrl: './add-item.component.html',
-  styleUrls: ['./add-item.component.css']
+  selector: 'app-edit-campaign',
+  templateUrl: './edit-campaign.component.html',
+  styleUrls: ['./edit-campaign.component.css']
 })
-export class AddItemComponent implements OnInit {
-  
-  campaign: any;
+export class EditCampaignComponent implements OnInit {
+
+  @Input()
+  campaignId!: string;
+
+  campaign!: Campaign;
+  id!: string;
 
   campaignForm = this.formBuilder.group({
     name: ['', [Validators.required, Validators.minLength(6)]],
@@ -23,10 +27,16 @@ export class AddItemComponent implements OnInit {
     radius: ['', Validators.required]
   })
 
-
-  constructor(private formBuilder: FormBuilder, private campaignService: CampaignService, private router: Router, private addEditService: AddEditService) { }
+  constructor(private router: Router, private campaignService: CampaignService, private addEditService: AddEditService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.getCampaignData()
+  }
+
+  updateCampaign(){
+     this.campaignService.editCampaign(this.campaign, this.campaignId).subscribe(()=>{
+      this.router.navigate(['/list', this.id])
+    })
   }
 
   numberOnly(event: { which: any; keyCode: any; }): boolean {
@@ -37,13 +47,9 @@ export class AddItemComponent implements OnInit {
     return true;
   }
 
-  createNewCampaign(){
-    this.campaign = this.campaignForm.value
-    this.campaignService.addCampaign(this.campaign).subscribe((res)=>{
-      this.router.navigate(['mainPage/list'])
-    }, (err)=>{
-      console.log(err)
-    })
+  getCampaignData(){
+    this.campaignForm.setValue(this.addEditService.getCampaignData())
   }
 
+  
 }

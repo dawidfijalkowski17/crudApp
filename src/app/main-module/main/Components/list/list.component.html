@@ -1,7 +1,10 @@
+<div class="headline">
+    <button type="button" class="addItem-button" [routerLink]="['../addItem']">Add</button>
+</div>
 <ul *ngIf="campaigns">
     <li *ngFor="let campaign of campaigns">
        {{ campaign.name }}  <span class="text-uppercase city-headline">{{campaign.town}} </span>
-       <button type="button" class="btn btn-primary" [routerLink]="['edit-campaign', campaign._id]" (click)="setEditContent(); getCampaignId(campaign._id); setCampaignData(campaign._id)">Edit</button>
+       <button type="button" class="btn btn-primary" [routerLink]="['../edit-campaign', campaign._id]" (click)="setEditContent(); getCampaignId(campaign._id); setCampaignData(campaign._id)">Edit</button>
        <button type="button" class="btn btn-primary" (click)="deleteCampaign(campaign._id)">Delete</button>
     </li>
 </ul>

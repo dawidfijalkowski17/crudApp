@@ -1,0 +1,18 @@
+<div class="login-box">
+    <div class="container">
+        <div class="form-container sign-in-container">
+            <form [formGroup]="loginForm">
+                <h1 class="mb-5">Sign up</h1>
+                <input type="login" placeholder="Login" formControlName="login"/>
+                <input type="email" placeholder="Email" formControlName="email"/>
+                <input type="password" placeholder="Password" formControlName="password"/>
+                <button class="mt-4" (click)="signIn()" [disabled]="!loginForm.valid">Sign Up</button>
+                <h6 class="mt-4" [routerLink]="['/login']">Back to <span class="go-to-register">login.</span></h6>
+            </form>
+            
+        </div>      
+    </div>
+    <div class="waiting-box" *ngIf="loginTimeWaiting">
+        <div class="loader"></div>
+    </div>
+    </div>

@@ -3,4 +3,5 @@ html,
 body{
     margin: auto 0;
     font-family: Helvetica, sans-serif;
+    height: 100%;
 }

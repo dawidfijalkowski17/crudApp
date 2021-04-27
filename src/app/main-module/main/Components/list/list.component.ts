@@ -29,6 +29,7 @@ export class ListComponent implements OnInit {
   constructor(private campaignService: CampaignService, private router: Router, private addEditService: AddEditService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    
     this.getAllCampaigns()
   }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AddEditService } from './Services/AddEditService/add-edit.service';
 
@@ -9,7 +9,7 @@ import { AddEditService } from './Services/AddEditService/add-edit.service';
 })
 export class MainComponent implements OnInit {
 
-  
+
 
   constructor(private router: Router, private addEditService: AddEditService) { }
 
@@ -21,4 +21,6 @@ export class MainComponent implements OnInit {
   backToLastPage(){
     this.router.navigate(['mainPage'])
   }
+
+
 }

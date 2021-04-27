@@ -1,3 +1,4 @@
+<h4 class="text-uppercase mt-4 ml-3">Add a new Campaign</h4>
 <form [formGroup]="campaignForm">
   <div class="row">  
         <div class="col">
@@ -28,8 +29,8 @@
                     Radius:
                     <input (keypress)="numberOnly($event)" type="text" maxlength="5" formControlName="radius">
                 </label>
-                <button type="button" class="btn btn-primary mt-4 ml-4" [disabled]="!campaignForm.valid" (click)="createNewCampaign()">Add campaign</button>
-            
+                <button type="button" class="btn btn-primary mt-4 mr-2 add-button" [disabled]="!campaignForm.valid" (click)="createNewCampaign()">Add campaign</button> 
+                <button type="button" class="btn btn-primary mt-4 " [routerLink]="['../list']" >Back</button> 
         </div>
 
         <div class="col">
