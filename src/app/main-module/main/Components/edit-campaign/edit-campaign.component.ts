@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AddEditService } from '../../Services/AddEditService/add-edit.service';
 import { Campaign } from '../../DTO/campaign';
@@ -17,6 +17,7 @@ export class EditCampaignComponent implements OnInit {
 
   campaign!: Campaign;
   id!: string;
+  
 
   campaignForm = this.formBuilder.group({
     name: ['', [Validators.required, Validators.minLength(6)]],

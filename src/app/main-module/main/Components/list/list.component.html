@@ -1,14 +1,17 @@
 <div class="headline">
     <button type="button" class="addItem-button" [routerLink]="['../addItem']">Add</button>
+    <div class="form-group-search">
+    <input type="search" class="form-control-search" [(ngModel)]="searchedCampaign" placeholder="Search" (ngModelChange)="searchCampaign()">
+        <i class="fas fa-search"></i>
+    </div>
 </div>
-<ul *ngIf="campaigns">
-    <li *ngFor="let campaign of campaigns">
+<ul *ngFor="let campaign of campaigns">
+    <li *ngIf="campaigns">
        {{ campaign.name }}  <span class="text-uppercase city-headline">{{campaign.town}} </span>
        <button type="button" class="btn btn-primary" [routerLink]="['../edit-campaign', campaign._id]" (click)="setEditContent(); getCampaignId(campaign._id); setCampaignData(campaign._id)">Edit</button>
        <button type="button" class="btn btn-primary" (click)="deleteCampaign(campaign._id)">Delete</button>
     </li>
 </ul>
-
 <div class="edit-content" *ngIf="isEdit">
 <app-edit-campaign [campaignId]="campaignId"></app-edit-campaign>
 </div>

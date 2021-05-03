@@ -16,3 +16,11 @@ input{
 .active-inp-status{
     margin: .8rem 0;
 }
+
+.row input{
+    margin-right: 2rem;
+ }
+ 
+ .row label{
+     margin-right: 1rem;
+ }

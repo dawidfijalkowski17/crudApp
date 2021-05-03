@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AddEditService } from '../../Services/AddEditService/add-edit.service';
 import { Campaign } from '../../DTO/campaign';
 import { CampaignService } from '../../Services/CampaignService/campaign.service';
+import { ThisReceiver, ThrowStmt } from '@angular/compiler';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-list',
@@ -16,6 +18,7 @@ export class ListComponent implements OnInit {
   isEdit = false;
   campaignId!: string;
   selectedCampaign: any;
+  searchedCampaign!: string;
 
   campaignForm = this.formBuilder.group({
     name: ['', [Validators.required, Validators.minLength(6)]],
@@ -29,7 +32,6 @@ export class ListComponent implements OnInit {
   constructor(private campaignService: CampaignService, private router: Router, private addEditService: AddEditService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    
     this.getAllCampaigns()
   }
 
@@ -62,10 +64,23 @@ export class ListComponent implements OnInit {
   setCampaignData(id: string){
     
     if(this.campaigns){
-      this.selectedCampaign =  this.campaigns.find((x: { _id: string; }) => x._id === id)
+      this.selectedCampaign =  this.campaigns.find((x: { _id: string }) => x._id === id)
       this.campaignId = this.selectedCampaign._id;
     }
-
     this.addEditService.setCampaignData(this.selectedCampaign)
   }
+
+  searchCampaign(){
+    if(this.searchedCampaign == "")
+    {
+      this.ngOnInit();
+    }
+    else
+    {
+      this.campaigns = this.campaigns.filter( (x: { name: string }) =>{
+      return x.name.toLocaleLowerCase().match(this.searchedCampaign.toLocaleLowerCase())
+      });
+    } 
+  }
+
 }
