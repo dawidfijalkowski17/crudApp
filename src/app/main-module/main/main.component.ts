@@ -15,11 +15,15 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
       
-    }
-
+  }
 
   backToLastPage(){
     this.router.navigate(['mainPage'])
+  }
+
+  logOut(){
+    localStorage.removeItem('user')
+    localStorage.removeItem('sessionTime')
   }
 
 

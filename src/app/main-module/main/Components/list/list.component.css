@@ -3,6 +3,7 @@ ul {
     list-style: none;
     padding: 0;
     overflow: auto;
+    margin-bottom: 0;
 }
 
 li{
@@ -58,6 +59,7 @@ button{
     color: white;
     transition: background-color .5s;
     float: left;
+    cursor: pointer;
 }
 
 .addItem-button:hover,
@@ -81,4 +83,3 @@ button{
     float: right;
     padding: .5rem .6rem;
 }
-

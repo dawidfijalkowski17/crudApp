@@ -10,6 +10,7 @@ import { MainComponent } from './main.component';
 import { AddItemComponent } from 'src/app/main-module/main/Components/add-item/add-item.component';
 import { EditCampaignComponent } from './Components/edit-campaign/edit-campaign.component';
 import { AddEditService } from './Services/AddEditService/add-edit.service';
+import { UsersComponent } from './Components/users/users.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { AddEditService } from './Services/AddEditService/add-edit.service';
     MainComponent,
     ListComponent,
     AddItemComponent,
-    EditCampaignComponent
+    EditCampaignComponent,
+    UsersComponent
   ],
   imports: [
     CommonModule,

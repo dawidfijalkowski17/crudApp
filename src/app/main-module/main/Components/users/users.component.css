@@ -1,0 +1,13 @@
+.headline{
+    background-color: whitesmoke;
+    border-bottom: 1px solid #313030;
+}
+
+h6{
+    font-weight: 600;
+    color: #313030;
+}
+
+span{
+    font-weight: 200;
+}

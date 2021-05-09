@@ -8,8 +8,8 @@
 <ul *ngFor="let campaign of campaigns">
     <li *ngIf="campaigns">
        {{ campaign.name }}  <span class="text-uppercase city-headline">{{campaign.town}} </span>
-       <button type="button" class="btn btn-primary" [routerLink]="['../edit-campaign', campaign._id]" (click)="setEditContent(); getCampaignId(campaign._id); setCampaignData(campaign._id)">Edit</button>
-       <button type="button" class="btn btn-primary" (click)="deleteCampaign(campaign._id)">Delete</button>
+       <button type="button" class="btn btn-primary edit" [routerLink]="['../edit-campaign', campaign._id]" (click)="setEditContent(); getCampaignId(campaign._id); setCampaignData(campaign._id)">Edit</button>
+       <button type="button" class="btn btn-primary delete" (click)="deleteCampaign(campaign._id)">Delete</button>
     </li>
 </ul>
 <div class="edit-content" *ngIf="isEdit">
